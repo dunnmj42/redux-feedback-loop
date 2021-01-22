@@ -26,7 +26,12 @@ const understandingReducer = (state = 0, action) => {
 }
 
 const supportedReducer = (state = 0, action) => {
-  return state;
+  switch(action.type) {
+    case "SET_SUPPORTED":
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 const commentReducer = (state = '', action) => {

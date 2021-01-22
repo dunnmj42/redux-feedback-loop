@@ -9,14 +9,21 @@ function Supported() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = () => {
+  const nextPage = (event) => {
+    event.preventDefault();
+    console.log(supported);
+    dispatch({
+      type: "SET_SUPPORTED",
+      payload: {supported}
+    })
     history.push('/comments')
   }
 
   return (
     <div>
       <h1>How well are you being supported?</h1>
-      <select name="supported" id="supported">
+      <form onSubmit={nextPage}>
+      <select name="supported" id="supported" onChange={(e) => setSupported(e.target.value)}>
         <option value="" disabled selected>Supported?</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -24,7 +31,8 @@ function Supported() {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <button onClick={nextPage}>Next</button>
+      <button type="submit">Next</button>
+      </form>
     </div>
   )
 };
