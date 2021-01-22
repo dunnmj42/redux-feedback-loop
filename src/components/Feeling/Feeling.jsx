@@ -9,21 +9,21 @@ function Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = () => {
-    setFeeling(feeling);
+  const nextPage = (event) => {
+    event.preventDefault();
     console.log(feeling);
     dispatch({
       type: "SET_FEELING",
       payload: {feeling}
     })
-    // history.push('/understanding');
+    history.push('/understanding');
   }
 
   return (
     <div>
       <h1>How are you feeling today?</h1>
       <form onSubmit={nextPage}>
-      <select name="feeling" id="feeling">
+      <select name="feeling" id="feeling" onChange={(e) => setFeeling(e.target.value)}>
         <option value="" disabled selected>Feeling?</option>
         <option value="1">1</option>
         <option value="2">2</option>

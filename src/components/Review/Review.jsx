@@ -18,7 +18,7 @@ function Review() {
   return (
     <div>
       <h1>Review Your Feedback</h1>
-      <p>Feelings: {feeling}</p>
+      <p>Feelings: {feeling.feeling}</p>
       <p>Understanding: {understanding}</p>
       <p>Support: {supported}</p>
       <p>Comments: {comment}</p>
