@@ -17,7 +17,12 @@ const feelingReducer = (state = 0, action) => {
 }
 
 const understandingReducer = (state = 0, action) => {
-  return state;
+  switch(action.type) {
+    case "SET_UNDERSTANDING":
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 const supportedReducer = (state = 0, action) => {

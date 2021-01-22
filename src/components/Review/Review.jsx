@@ -19,7 +19,7 @@ function Review() {
     <div>
       <h1>Review Your Feedback</h1>
       <p>Feelings: {feeling.feeling}</p>
-      <p>Understanding: {understanding}</p>
+      <p>Understanding: {understanding.understanding}</p>
       <p>Support: {supported}</p>
       <p>Comments: {comment}</p>
       <button onClick={nextPage}>Submit</button>
