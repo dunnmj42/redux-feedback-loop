@@ -8,7 +8,12 @@ import App from "./components/App/App";
 import registerServiceWorker from "./registerServiceWorker";
 
 const feelingReducer = (state = 0, action) => {
-  return state;
+  switch(action.type) {
+    case "SET_FEELING":
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 const understandingReducer = (state = 0, action) => {
