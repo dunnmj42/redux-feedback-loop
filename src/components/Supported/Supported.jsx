@@ -4,17 +4,17 @@ import { useState } from 'react';
 
 function Supported() {
 
-  const [supported, setSupported] = useState('');
+  const [support, setSupport] = useState('');
 
   const history = useHistory();
   const dispatch = useDispatch();
 
   const nextPage = (event) => {
     event.preventDefault();
-    console.log(supported);
+    console.log(support);
     dispatch({
       type: "SET_SUPPORTED",
-      payload: {supported}
+      payload: {support}
     })
     history.push('/comments')
   }
@@ -23,7 +23,7 @@ function Supported() {
     <div>
       <h1>How well are you being supported?</h1>
       <form onSubmit={nextPage}>
-      <select name="supported" id="supported" onChange={(e) => setSupported(e.target.value)}>
+      <select name="support" id="support" onChange={(e) => setSupport(e.target.value)}>
         <option value="" disabled selected>Supported?</option>
         <option value="1">1</option>
         <option value="2">2</option>

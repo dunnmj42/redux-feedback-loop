@@ -6,7 +6,7 @@ function Review() {
 
   const feeling = useSelector((store) => store.feelingReducer);
   const understanding = useSelector((store) => store.understandingReducer);
-  const supported = useSelector((store) => store.supportedReducer);
+  const support = useSelector((store) => store.supportedReducer);
   const comment = useSelector((store) => store.commentReducer);
 
   const history = useHistory();
@@ -20,7 +20,7 @@ function Review() {
       <h1>Review Your Feedback</h1>
       <p>Feelings: {feeling.feeling}</p>
       <p>Understanding: {understanding.understanding}</p>
-      <p>Support: {supported.supported}</p>
+      <p>Support: {support.supported}</p>
       <p>Comments: {comment.comment}</p>
       <button onClick={nextPage}>Submit</button>
     </div>
