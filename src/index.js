@@ -7,36 +7,41 @@ import "./index.css";
 import App from "./components/App/App";
 import registerServiceWorker from "./registerServiceWorker";
 
-const feelingReducer = (state = 0, action) => {
+const feelingReducer = (state = {}, action) => {
   switch(action.type) {
     case "SET_FEELING":
       return action.payload;
     default:
       return state;
   }
-}
+};
 
-const understandingReducer = (state = 0, action) => {
+const understandingReducer = (state = {}, action) => {
   switch(action.type) {
     case "SET_UNDERSTANDING":
       return action.payload;
     default:
       return state;
   }
-}
+};
 
-const supportedReducer = (state = 0, action) => {
+const supportedReducer = (state = {}, action) => {
   switch(action.type) {
     case "SET_SUPPORTED":
       return action.payload;
     default:
       return state;
   }
-}
+};
 
-const commentReducer = (state = '', action) => {
-  return state;
-}
+const commentReducer = (state = {}, action) => {
+  switch(action.type) {
+    case "SET_COMMENT":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 const reduxStore = createStore(
   combineReducers({

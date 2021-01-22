@@ -9,15 +9,23 @@ function Comments() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = () => {
+  const nextPage = (event) => {
+    event.preventDefault();
+    console.log(comment);
+    dispatch({
+      type: "SET_COMMENT",
+      payload: {comment}
+    })
     history.push('/review')
   }
 
   return (
     <div>
       <h1>Any comments you want to leave?</h1>
-      <input type="text" placeholder="Any Comments?"/>
-      <button onClick={nextPage}>Next</button>
+      <form onSubmit={nextPage}>
+      <input type="text" placeholder="Any Comments?" onChange={(e) => setComment(e.target.value)}/>
+      <button type="submit">Next</button>
+      </form>
     </div>
   )
 };

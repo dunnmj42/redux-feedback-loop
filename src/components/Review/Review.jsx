@@ -21,7 +21,7 @@ function Review() {
       <p>Feelings: {feeling.feeling}</p>
       <p>Understanding: {understanding.understanding}</p>
       <p>Support: {supported.supported}</p>
-      <p>Comments: {comment}</p>
+      <p>Comments: {comment.comment}</p>
       <button onClick={nextPage}>Submit</button>
     </div>
   )
