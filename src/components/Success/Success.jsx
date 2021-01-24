@@ -1,11 +1,10 @@
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function Success() {
-
   const history = useHistory();
 
   const nextPage = () => {
-    history.push('/');
+    history.push("/");
   };
 
   return (
@@ -13,7 +12,7 @@ function Success() {
       <h1>Thank You!</h1>
       <button onClick={nextPage}>Leave New Feedback</button>
     </div>
-  )
-};
+  );
+}
 
 export default Success;

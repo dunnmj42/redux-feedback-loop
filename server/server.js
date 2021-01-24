@@ -1,19 +1,18 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
-const router = require('./routes/router')
+const bodyParser = require("body-parser");
+const router = require("./routes/router");
 const PORT = process.env.PORT || 5000;
 
-
 /** ---------- MIDDLEWARE ---------- **/
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('build'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("build"));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/submit', router);
+app.use("/submit", router);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
-    console.log('Listening on port: ', PORT);
+  console.log("Listening on port: ", PORT);
 });

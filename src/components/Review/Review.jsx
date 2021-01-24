@@ -1,9 +1,8 @@
-import axios from 'axios';
-import {useHistory} from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Review() {
-
   const feeling = useSelector((store) => store.feelingReducer);
   const understanding = useSelector((store) => store.understandingReducer);
   const support = useSelector((store) => store.supportedReducer);
@@ -12,19 +11,20 @@ function Review() {
   const history = useHistory();
 
   const nextPage = () => {
-
-    axios.post('/submit', {feeling, understanding, support, comments})
-    .then((response) => {
-      console.log(response)
-    }).catch((error) =>{
-      alert('error in submit')
-      console.error(error)
-    });
-    history.push('/success');
+    axios
+      .post("/submit", { feeling, understanding, support, comments })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        alert("error in submit");
+        console.error(error);
+      });
+    history.push("/success");
   };
 
   const backButton = () => {
-    history.push('/comments');
+    history.push("/comments");
   };
 
   return (
@@ -35,10 +35,11 @@ function Review() {
       <p>Support: {support.support}</p>
       <p>Comments: {comments.comments}</p>
       <button onClick={nextPage}>Submit</button>
-      <br/>
+      <br />
+      <br />
       <button onClick={backButton}>Back</button>
     </div>
-  )
-};
+  );
+}
 
 export default Review;

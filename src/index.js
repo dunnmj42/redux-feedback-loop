@@ -8,39 +8,39 @@ import App from "./components/App/App";
 import registerServiceWorker from "./registerServiceWorker";
 
 const feelingReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case "SET_FEELING":
       return action.payload;
     default:
       return state;
-  };
+  }
 };
 
 const understandingReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case "SET_UNDERSTANDING":
       return action.payload;
     default:
       return state;
-  };
+  }
 };
 
 const supportedReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case "SET_SUPPORTED":
       return action.payload;
     default:
       return state;
-  };
+  }
 };
 
 const commentReducer = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case "SET_COMMENTS":
       return action.payload;
     default:
       return state;
-  };
+  }
 };
 
 const reduxStore = createStore(

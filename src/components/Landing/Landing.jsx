@@ -1,11 +1,10 @@
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function Landing() {
-
   const history = useHistory();
 
   const nextPage = () => {
-    history.push('/feeling');
+    history.push("/feeling");
   };
 
   return (
@@ -13,7 +12,7 @@ function Landing() {
       <h1>Leave Your Feedback?</h1>
       <button onClick={nextPage}>Let's Get Started!</button>
     </div>
-  )
-};
+  );
+}
 
 export default Landing;
