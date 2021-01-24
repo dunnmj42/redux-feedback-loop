@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple, full-stack feedback form app that takes input from a user across multiple client-side routed pages, and gives the user a chance to review before submitting. Submitted feedback is stored in the server for data permanence. Input validation requires the user to enter a value for each page in the form before continuing, with the exception of the comments page, which does not require an input.
+A simple, full-stack feedback form app that takes input from a user across multiple client-side routed pages, and gives the user a chance to review before submitting. Submitted feedback is stored in the postgres database for data permanence. Input validation requires the user to enter a value for each page in the form before continuing, with the exception of the comments page, which does not require an input.
 
 ## Installation
 
