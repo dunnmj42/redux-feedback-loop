@@ -38,8 +38,6 @@ function Feeling() {
           <h1>How are you feeling today?</h1>
           <form onSubmit={nextPage}>
             <Select
-              name="feeling"
-              id="feeling"
               value={feeling}
               onChange={(e) => setFeeling(e.target.value)}
             >

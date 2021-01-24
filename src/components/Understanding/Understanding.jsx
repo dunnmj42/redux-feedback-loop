@@ -38,8 +38,6 @@ function Understanding() {
           <h1>How well are you understanding the content?</h1>
           <form onSubmit={nextPage}>
             <Select
-              name="understanding"
-              id="understanding"
               value={understanding}
               onChange={(e) => setUnderstanding(e.target.value)}
             >

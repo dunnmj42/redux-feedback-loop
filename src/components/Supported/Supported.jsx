@@ -38,8 +38,6 @@ function Supported() {
           <h1>How well are you being supported?</h1>
           <form onSubmit={nextPage}>
             <Select
-              name="support"
-              id="support"
               value={support}
               onChange={(e) => setSupport(e.target.value)}
             >
