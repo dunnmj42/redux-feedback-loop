@@ -1,4 +1,5 @@
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   table: {
@@ -18,9 +20,24 @@ const useStyles = makeStyles({
 
 function Admin() {
 
-  const [feedbackList, setFeedbackList]
+  const [feedbackList, setFeedbackList] = useState([]);
 
   const classes = useStyles();
+
+  useEffect(() => {
+    getFeedback();
+  }, []);
+
+  const getFeedback = () => {
+    axios.get("/admin")
+      .then((response) => {
+        setFeedbackList(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -43,15 +60,17 @@ function Admin() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {feedbackList.map((row) => (
+            <TableRow key={row.id}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.feeling}
               </TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
+              <TableCell>{row.understanding}</TableCell>
+              <TableCell>{row.support}</TableCell>
+              <TableCell>{row.comments}</TableCell>
+              <TableCell>
+                <Button variant="contained" color="secondary">Delete</Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

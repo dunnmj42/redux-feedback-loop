@@ -9,6 +9,7 @@ import Comments from "../Comments/Comments";
 import Review from "../Review/Review";
 import Success from "../Success/Success";
 import Landing from "../Landing/Landing";
+import Admin from "../Admin/Admin"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/comments" component={Comments} />
         <Route path="/review" component={Review} />
         <Route path="/success" component={Success} />
+        <Route path="/admin" component={Admin} />
       </div>
     </Router>
   );
