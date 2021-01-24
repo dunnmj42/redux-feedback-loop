@@ -21,7 +21,11 @@ function Review() {
       console.error(error)
     });
     history.push('/success');
-  }
+  };
+
+  const backButton = () => {
+    history.push('/comments');
+  };
 
   return (
     <div>
@@ -31,6 +35,8 @@ function Review() {
       <p>Support: {support.support}</p>
       <p>Comments: {comments.comments}</p>
       <button onClick={nextPage}>Submit</button>
+      <br/>
+      <button onClick={backButton}>Back</button>
     </div>
   )
 };

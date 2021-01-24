@@ -23,6 +23,10 @@ function Feeling() {
     }
   };
 
+  const backButton = () => {
+    history.push('/');
+  };
+
   return (
     <div>
       <h1>How are you feeling today?</h1>
@@ -37,6 +41,8 @@ function Feeling() {
       </select>
       <button type="submit">Next</button>
       </form>
+      <br/>
+      <button onClick={backButton}>Back</button>
     </div>
   )
 };

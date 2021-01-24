@@ -23,6 +23,10 @@ function Supported() {
     }
   };
 
+  const backButton = () => {
+    history.push('/understanding');
+  };
+
   return (
     <div>
       <h1>How well are you being supported?</h1>
@@ -37,6 +41,8 @@ function Supported() {
       </select>
       <button type="submit">Next</button>
       </form>
+      <br/>
+      <button onClick={backButton}>Back</button>
     </div>
   )
 };

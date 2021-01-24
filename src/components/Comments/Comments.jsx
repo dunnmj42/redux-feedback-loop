@@ -19,6 +19,10 @@ function Comments() {
     history.push('/review');
   };
 
+  const backButton = () => {
+    history.push('/supported');
+  };
+
   return (
     <div>
       <h1>Any comments you want to leave?</h1>
@@ -26,6 +30,8 @@ function Comments() {
       <input type="text" placeholder="Any Comments?" onChange={(e) => setComments(e.target.value)}/>
       <button type="submit">Next</button>
       </form>
+      <br/>
+      <button onClick={backButton}>Back</button>
     </div>
   )
 };
