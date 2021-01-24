@@ -24,4 +24,47 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/", (req, res) => {
+  const queryText = `SELECT * FROM feedback ORDER BY id;`;
+
+  pool.query(queryText)
+    .then((response) => {
+      console.log(response.rows);
+      res.send(response.rows);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${queryText}`, error);
+      res.sendStatus(500);
+    })
+});
+
+router.delete("/delete/:id", (req, res) => {
+  let id = req.params.id
+  console.log(id);
+
+  pool.query('DELETE FROM "feedback" WHERE "id"=$1;', [id])
+    .then((results) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    })
+});
+
+router.put('/flag/:id', (req, res) => {
+  let id = req.params.id;
+  console.log(id);
+  
+  let queryText = `
+      UPDATE "feedback"
+      SET "flagged" = NOT "flagged"
+      WHERE "id" = $1;`;
+
+pool.query(queryText, [id]).then((results) => {
+    console.log(results.rows);
+    res.sendStatus(200)
+})
+});
+
 module.exports = router;
