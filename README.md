@@ -13,7 +13,7 @@ A simple, full-stack feedback form app that takes input from a user across multi
 5. Run `npm run client`
 ## Built With
 
- React, Redux, Node.js, PostgreSQL and PG, Express, Redux-logger
+ React, Redux, Node.js, PostgreSQL and PG, Express, Redux-logger, Material UI
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped me with the skills to make this application a reality.
