@@ -7,26 +7,29 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
+// feeling form 
 function Feeling() {
-  const [feeling, setFeeling] = useState("Feeling?");
+  const [feeling, setFeeling] = useState("Feeling?"); // local state
 
   const history = useHistory();
   const dispatch = useDispatch();
 
+  // navigate to next page on dispatch
   const nextPage = (event) => {
     event.preventDefault();
     console.log(feeling);
-    if (feeling > 0) {
+    if (feeling > 0) { // input validation
       dispatch({
         type: "SET_FEELING",
         payload: { feeling },
       });
       history.push("/understanding");
     } else {
-      alert("Please enter a value before continuing!");
+      alert("Please enter a value before continuing!"); // alert on validation fail
     }
   };
 
+  // backwards nav button
   const backButton = () => {
     history.push("/");
   };

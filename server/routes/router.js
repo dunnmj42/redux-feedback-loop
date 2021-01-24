@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
+// POST ROUTE
 router.post("/", (req, res) => {
   let newFeedback = req.body;
 
@@ -22,8 +23,9 @@ router.post("/", (req, res) => {
       console.error(error);
       res.sendStatus(500);
     });
-});
+}); // END POST
 
+// GET ROUTE
 router.get("/", (req, res) => {
   const queryText = `SELECT * FROM feedback ORDER BY id;`;
 
@@ -36,10 +38,11 @@ router.get("/", (req, res) => {
       console.log(`Error making database query ${queryText}`, error);
       res.sendStatus(500);
     })
-});
+}); // END GET
 
+// Admin component DELETE ROUTE
 router.delete("/delete/:id", (req, res) => {
-  let id = req.params.id
+  let id = req.params.id // DELETE TARGET
   console.log(id);
 
   pool.query('DELETE FROM "feedback" WHERE "id"=$1;', [id])
@@ -50,21 +53,23 @@ router.delete("/delete/:id", (req, res) => {
       console.error(error);
       res.sendStatus(500);
     })
-});
+}); // END DELETE
 
+// Admin component PUT ROUTE for "flagged" toggle
 router.put('/flag/:id', (req, res) => {
   let id = req.params.id;
   console.log(id);
   
   let queryText = `
       UPDATE "feedback"
-      SET "flagged" = NOT "flagged"
-      WHERE "id" = $1;`;
+      SET "flagged" = NOT "flagged" 
+      WHERE "id" = $1;`; // NOT toggles boolean value on UPDATE
 
-pool.query(queryText, [id]).then((results) => {
-    console.log(results.rows);
-    res.sendStatus(200)
-})
-});
+  pool.query(queryText, [id])
+    .then((results) => {
+      console.log(results.rows);
+      res.sendStatus(200)
+    })
+}); // END PUT
 
 module.exports = router;

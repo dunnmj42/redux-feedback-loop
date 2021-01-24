@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("build"));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use("/submit", router);
-app.use("/admin", router);
+app.use("/submit", router); // ROUTE FOR FEEDBACK SUBMISSION
+app.use("/admin", router); // ROUTE FOR Admin COMPONENT
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

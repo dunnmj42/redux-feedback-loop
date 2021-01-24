@@ -12,22 +12,26 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 
+// style constructor for MUI
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
 
+// Admin page component
 function Admin() {
 
-  const [feedbackList, setFeedbackList] = useState([]);
+  const [feedbackList, setFeedbackList] = useState([]); // local state for DB data
 
   const classes = useStyles();
 
+  // useEffect for table population on load
   useEffect(() => {
     getFeedback();
   }, []);
 
+  // axios GET for feedback data from DB
   const getFeedback = () => {
     axios.get("/admin")
       .then((response) => {
@@ -39,24 +43,26 @@ function Admin() {
       });
   };
 
+  // DELETE function and axios request
   const deleteRow = (rowToDelete) => {
     let id = rowToDelete.id
 
-    axios.delete(`/admin/delete/${id}`)
+    axios.delete(`/admin/delete/${id}`) 
     .then((response) => {
-      getFeedback();
+      getFeedback(); // repopulate table
     })
     .catch((error) => {
       console.error(error);
     });
   };
 
+  // PUT function and axios request
   const flagRow = (rowToFlag) => {
     let id = rowToFlag.id
 
     axios.put(`/admin/flag/${id}`)
     .then((response) => {
-      getFeedback();
+      getFeedback(); // repopulate table
     })
     .catch((error) => {
       console.error(error);

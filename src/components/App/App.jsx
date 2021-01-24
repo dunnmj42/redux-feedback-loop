@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
 import Feeling from "../Feeling/Feeling";
@@ -10,6 +10,12 @@ import Review from "../Review/Review";
 import Success from "../Success/Success";
 import Landing from "../Landing/Landing";
 import Admin from "../Admin/Admin"
+
+// ALL I DO IS ROUTE
+
+// ALL DAY E'RRY DAY
+
+// ASK ME HOW LONG I CAN ROUTE FOR
 
 function App() {
   return (
@@ -27,6 +33,8 @@ function App() {
       </div>
     </Router>
   );
-}
+};
+
+// TOLD YOU
 
 export default App;

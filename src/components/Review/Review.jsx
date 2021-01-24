@@ -5,7 +5,9 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
+// review page component
 function Review() {
+  // Selectors for Redux data from forms
   const feeling = useSelector((store) => store.feelingReducer);
   const understanding = useSelector((store) => store.understandingReducer);
   const support = useSelector((store) => store.supportedReducer);
@@ -14,6 +16,7 @@ function Review() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  // navigate to next page on successful POST
   const nextPage = () => {
     axios
       .post("/submit", { feeling, understanding, support, comments })
@@ -26,10 +29,11 @@ function Review() {
       });
     dispatch({
       type: "CLEAR"
-    });
-    history.push("/success");
+    }); // DISPATCH TO ROOT REDUCER FOR ALL CLEAR
+    history.push("/success"); // push to success page
   };
 
+  // backwards navigation button
   const backButton = () => {
     history.push("/comments");
   };

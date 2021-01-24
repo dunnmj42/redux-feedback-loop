@@ -9,12 +9,14 @@ import registerServiceWorker from "./registerServiceWorker";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
+// MUI "dark mode" theme for Provider
 const theme = createMuiTheme({
   palette: {
     type: "dark",
   }
 });
 
+// TOP LEVEL REDUCERS FOR FEEDBACK DATA
 const feelingReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_FEELING":
@@ -49,8 +51,9 @@ const commentReducer = (state = {}, action) => {
     default:
       return state;
   }
-};
+};// END TOP LEVEL REDUCERS
 
+// combineReducers for rootReducer use
 const appReducer = combineReducers({
     feelingReducer,
     understandingReducer,
@@ -58,20 +61,23 @@ const appReducer = combineReducers({
     commentReducer,
 });
 
+// rootReducer allows CLEAR all reducers
 const rootReducer = (state, action) => {
   switch (action.type) {
     case "CLEAR":
       return undefined;
     default:
-      return appReducer(state, action);
+      return appReducer(state, action); // Else return combined top level reducers
   }
 };
 
+// store declaration and middleware(redux-logger)
 const reduxStore = createStore(
   rootReducer,
   applyMiddleware(logger)
 );
 
+// Theme provider for MUI and CSS baseline for element styling
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Provider store={reduxStore}>

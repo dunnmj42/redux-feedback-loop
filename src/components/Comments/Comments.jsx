@@ -6,12 +6,14 @@ import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
+// comments form component
 function Comments() {
-  const [comments, setComments] = useState("");
+  const [comments, setComments] = useState(""); // local state
 
   const history = useHistory();
   const dispatch = useDispatch();
 
+  // next page navigation on dispatch
   const nextPage = (event) => {
     event.preventDefault();
     console.log(comments);
@@ -20,8 +22,9 @@ function Comments() {
       payload: { comments },
     });
     history.push("/review");
-  };
+  }; // NO input validation on comments (optional)
 
+  // backwards navigation button
   const backButton = () => {
     history.push("/supported");
   };

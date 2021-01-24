@@ -1,5 +1,6 @@
 import './Header.css'
 
+// this is a header, it goes at the top.
 function Header() {
   return (
     <header className="App-header">

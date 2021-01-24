@@ -7,26 +7,29 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
+// understanding form
 function Understanding() {
-  const [understanding, setUnderstanding] = useState("Understanding?");
+  const [understanding, setUnderstanding] = useState("Understanding?"); // local state
 
   const history = useHistory();
   const dispatch = useDispatch();
 
+  // navigate to next form on dispatch
   const nextPage = (event) => {
     event.preventDefault();
     console.log(understanding);
-    if (understanding > 0) {
+    if (understanding > 0) { // input validation
       dispatch({
         type: "SET_UNDERSTANDING",
         payload: { understanding },
       });
       history.push("/supported");
     } else {
-      alert("Please enter a value before continuing!");
+      alert("Please enter a value before continuing!"); // alert on validation fail
     }
   };
 
+  // backwards navigation
   const backButton = () => {
     history.push("/feeling");
   };
