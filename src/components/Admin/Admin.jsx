@@ -70,6 +70,7 @@ function Admin() {
           <h1>Feedback Results</h1>
         </CardContent>
       </Card>
+      <br/>
       <Card>
         <CardContent>
         <TableContainer component={Paper}>
