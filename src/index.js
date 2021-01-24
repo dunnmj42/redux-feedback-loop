@@ -6,6 +6,14 @@ import logger from "redux-logger";
 import "./index.css";
 import App from "./components/App/App";
 import registerServiceWorker from "./registerServiceWorker";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+  }
+});
 
 const feelingReducer = (state = {}, action) => {
   switch (action.type) {
@@ -54,9 +62,12 @@ const reduxStore = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={reduxStore}>
-    <App />
-  </Provider>,
+  <ThemeProvider theme={theme}>
+    <Provider store={reduxStore}>
+      <CssBaseline/>
+      <App />
+    </Provider>
+  </ThemeProvider>,
   document.getElementById("root")
 );
 registerServiceWorker();

@@ -1,6 +1,9 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField"
+
 
 function Comments() {
   const [comments, setComments] = useState("");
@@ -27,15 +30,15 @@ function Comments() {
       <h1>Any comments you want to leave?</h1>
       <h2>(This is optional!)</h2>
       <form onSubmit={nextPage}>
-        <input
+        <TextField
           type="text"
           placeholder="Any Comments?"
           onChange={(e) => setComments(e.target.value)}
         />
-        <button type="submit">Next</button>
+        <Button type="submit">Next</Button>
       </form>
       <br />
-      <button onClick={backButton}>Back</button>
+      <Button variant="outlined" onClick={backButton}>Back</Button>
     </div>
   );
 }

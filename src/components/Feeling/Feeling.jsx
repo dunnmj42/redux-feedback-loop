@@ -1,9 +1,12 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function Feeling() {
-  const [feeling, setFeeling] = useState("");
+  const [feeling, setFeeling] = useState("Feeling?");
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -11,7 +14,7 @@ function Feeling() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(feeling);
-    if (feeling) {
+    if (feeling > 0) {
       dispatch({
         type: "SET_FEELING",
         payload: { feeling },
@@ -30,25 +33,25 @@ function Feeling() {
     <div>
       <h1>How are you feeling today?</h1>
       <form onSubmit={nextPage}>
-        <select
+        <Select
           name="feeling"
           id="feeling"
           value={feeling}
           onChange={(e) => setFeeling(e.target.value)}
         >
-          <option value="" disabled>
+          <MenuItem value={"Feeling?"} disabled>
             Feeling?
-          </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <button type="submit">Next</button>
+          </MenuItem>
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+        </Select>
+        <Button type="submit">Next</Button>
       </form>
       <br />
-      <button onClick={backButton}>Back</button>
+      <Button variant="outlined" onClick={backButton}>Back</Button>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 function Landing() {
   const history = useHistory();
@@ -10,7 +11,7 @@ function Landing() {
   return (
     <div>
       <h1>Leave Your Feedback?</h1>
-      <button onClick={nextPage}>Let's Get Started!</button>
+      <Button variant="outlined" onClick={nextPage}>Let's Get Started!</Button>
     </div>
   );
 }
