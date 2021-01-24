@@ -24,4 +24,18 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/", (req, res) => {
+  const queryText = `SELECT * FROM feedback ORDER BY id;`;
+
+  pool.query(queryText)
+    .then((response) => {
+      console.log(response.rows);
+      res.send(response.rows);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${queryText}`, error);
+      res.sendStatus(500);
+    })
+});
+
 module.exports = router;
