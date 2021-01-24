@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -12,6 +12,7 @@ function Review() {
   const comments = useSelector((store) => store.commentReducer);
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const nextPage = () => {
     axios
@@ -23,6 +24,9 @@ function Review() {
         alert("error in submit");
         console.error(error);
       });
+    dispatch({
+      type: "CLEAR"
+    });
     history.push("/success");
   };
 
