@@ -4,6 +4,8 @@ import { useState } from "react";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 function Feeling() {
   const [feeling, setFeeling] = useState("Feeling?");
@@ -31,27 +33,33 @@ function Feeling() {
 
   return (
     <div>
-      <h1>How are you feeling today?</h1>
-      <form onSubmit={nextPage}>
-        <Select
-          name="feeling"
-          id="feeling"
-          value={feeling}
-          onChange={(e) => setFeeling(e.target.value)}
-        >
-          <MenuItem value={"Feeling?"} disabled>
-            Feeling?
-          </MenuItem>
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={5}>5</MenuItem>
-        </Select>
-        <Button type="submit">Next</Button>
-      </form>
+      <Card>
+        <CardContent>
+          <h1>How are you feeling today?</h1>
+          <form onSubmit={nextPage}>
+            <Select
+              name="feeling"
+              id="feeling"
+              value={feeling}
+              onChange={(e) => setFeeling(e.target.value)}
+            >
+              <MenuItem value={"Feeling?"} disabled>
+                Feeling?
+              </MenuItem>
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+            </Select>
+            <Button type="submit">Next</Button>
+          </form>
+        </CardContent>
+      </Card>
       <br />
-      <Button variant="outlined" onClick={backButton}>Back</Button>
+      <Button variant="outlined" onClick={backButton}>
+        Back
+      </Button>
     </div>
   );
 }
