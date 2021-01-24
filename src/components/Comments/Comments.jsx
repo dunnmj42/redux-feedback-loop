@@ -25,6 +25,7 @@ function Comments() {
   return (
     <div>
       <h1>Any comments you want to leave?</h1>
+      <h2>(This is optional!)</h2>
       <form onSubmit={nextPage}>
         <input
           type="text"
