@@ -42,8 +42,20 @@ function Admin() {
   const deleteRow = (rowToDelete) => {
     let id = rowToDelete.id
 
-    axios.delete(`/admin/${id}`)
-    .then((response) =>{
+    axios.delete(`/admin/delete/${id}`)
+    .then((response) => {
+      getFeedback();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+
+  const flagRow = (rowToFlag) => {
+    let id = rowToFlag.id
+
+    axios.put(`/admin/flag/${id}`)
+    .then((response) => {
       getFeedback();
     })
     .catch((error) => {
@@ -68,6 +80,7 @@ function Admin() {
             <TableCell>Comprehension</TableCell>
             <TableCell>Support</TableCell>
             <TableCell>Comments</TableCell>
+            <TableCell>Flag</TableCell>
             <TableCell>Delete</TableCell>
           </TableRow>
         </TableHead>
@@ -80,6 +93,13 @@ function Admin() {
               <TableCell>{row.understanding}</TableCell>
               <TableCell>{row.support}</TableCell>
               <TableCell>{row.comments}</TableCell>
+              <TableCell>
+                {!row.flagged ? (
+                  <Button variant="contained" color="primary" onClick={() => flagRow(row)}>Flag</Button>
+                ) : (
+                  <Button variant="contained" color="default" onClick={() => flagRow(row)}>Unflag</Button>
+                )}
+              </TableCell>
               <TableCell>
                 <Button variant="contained" color="secondary" onClick={() => deleteRow(row)}>Delete</Button>
               </TableCell>

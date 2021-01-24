@@ -38,7 +38,7 @@ router.get("/", (req, res) => {
     })
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   let id = req.params.id
   console.log(id);
 
@@ -50,6 +50,21 @@ router.delete("/:id", (req, res) => {
       console.error(error);
       res.sendStatus(500);
     })
+});
+
+router.put('/flag/:id', (req, res) => {
+  let id = req.params.id;
+  console.log(id);
+  
+  let queryText = `
+      UPDATE "feedback"
+      SET "flagged" = NOT "flagged"
+      WHERE "id" = $1;`;
+
+pool.query(queryText, [id]).then((results) => {
+    console.log(results.rows);
+    res.sendStatus(200)
+})
 });
 
 module.exports = router;
