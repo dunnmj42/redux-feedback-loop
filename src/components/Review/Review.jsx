@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 function Review() {
   const feeling = useSelector((store) => store.feelingReducer);
@@ -29,15 +32,22 @@ function Review() {
 
   return (
     <div>
-      <h1>Review Your Feedback</h1>
-      <p>Feelings: {feeling.feeling}</p>
-      <p>Understanding: {understanding.understanding}</p>
-      <p>Support: {support.support}</p>
-      <p>Comments: {comments.comments}</p>
-      <button onClick={nextPage}>Submit</button>
+      <Card>
+        <CardContent>
+          <h1>Review Your Feedback</h1>
+          <h2>Feelings: {feeling.feeling}</h2>
+          <h2>Understanding: {understanding.understanding}</h2>
+          <h2>Support: {support.support}</h2>
+          <h2>Comments: {comments.comments}</h2>
+          <Button variant="contained" color="primary" onClick={nextPage}>
+            Submit
+          </Button>
+        </CardContent>
+      </Card>
       <br />
-      <br />
-      <button onClick={backButton}>Back</button>
+      <Button variant="outlined" onClick={backButton}>
+        Back
+      </Button>
     </div>
   );
 }

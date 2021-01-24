@@ -1,16 +1,22 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
+import MenuItem from "@material-ui/core/MenuItem";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 function Understanding() {
-  const [understanding, setUnderstanding] = useState("");
+  const [understanding, setUnderstanding] = useState("Understanding?");
 
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = () => {
+  const nextPage = (event) => {
+    event.preventDefault();
     console.log(understanding);
-    if (understanding) {
+    if (understanding > 0) {
       dispatch({
         type: "SET_UNDERSTANDING",
         payload: { understanding },
@@ -27,26 +33,33 @@ function Understanding() {
 
   return (
     <div>
-      <h1>How well are you understanding the content?</h1>
-      <form onSubmit={nextPage}>
-        <select
-          name="understanding"
-          id="understanding"
-          onChange={(e) => setUnderstanding(e.target.value)}
-        >
-          <option value="" disabled selected>
-            Understanding?
-          </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <button type="submit">Next</button>
-      </form>
+      <Card>
+        <CardContent>
+          <h1>How well are you understanding the content?</h1>
+          <form onSubmit={nextPage}>
+            <Select
+              name="understanding"
+              id="understanding"
+              value={understanding}
+              onChange={(e) => setUnderstanding(e.target.value)}
+            >
+              <MenuItem value="Understanding?" disabled>
+                Understanding?
+              </MenuItem>
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+            </Select>
+            <Button type="submit">Next</Button>
+          </form>
+        </CardContent>
+      </Card>
       <br />
-      <button onClick={backButton}>Back</button>
+      <Button variant="outlined" onClick={backButton}>
+        Back
+      </Button>
     </div>
   );
 }
