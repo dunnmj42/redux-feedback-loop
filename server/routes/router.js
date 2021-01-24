@@ -38,4 +38,18 @@ router.get("/", (req, res) => {
     })
 });
 
+router.delete("/:id", (req, res) => {
+  let id = req.params.id
+  console.log(id);
+
+  pool.query('DELETE FROM "feedback" WHERE "id"=$1;', [id])
+    .then((results) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    })
+});
+
 module.exports = router;

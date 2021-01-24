@@ -35,8 +35,20 @@ function Admin() {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
+  };
+
+  const deleteRow = (rowToDelete) => {
+    let id = rowToDelete.id
+
+    axios.delete(`/admin/${id}`)
+    .then((response) =>{
+      getFeedback();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   return (
@@ -69,7 +81,7 @@ function Admin() {
               <TableCell>{row.support}</TableCell>
               <TableCell>{row.comments}</TableCell>
               <TableCell>
-                <Button variant="contained" color="secondary">Delete</Button>
+                <Button variant="contained" color="secondary" onClick={() => deleteRow(row)}>Delete</Button>
               </TableCell>
             </TableRow>
           ))}
