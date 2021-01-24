@@ -8,7 +8,8 @@ function Supported() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = () => {
+  const nextPage = (event) => {
+    event.preventDefault();
     console.log(support);
     if (support) {
       dispatch({
