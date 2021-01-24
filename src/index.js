@@ -13,7 +13,7 @@ const feelingReducer = (state = {}, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 const understandingReducer = (state = {}, action) => {
@@ -22,7 +22,7 @@ const understandingReducer = (state = {}, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 const supportedReducer = (state = {}, action) => {
@@ -31,7 +31,7 @@ const supportedReducer = (state = {}, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 const commentReducer = (state = {}, action) => {
@@ -40,7 +40,7 @@ const commentReducer = (state = {}, action) => {
       return action.payload;
     default:
       return state;
-  }
+  };
 };
 
 const reduxStore = createStore(

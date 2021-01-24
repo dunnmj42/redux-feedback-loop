@@ -9,15 +9,22 @@ function Understanding() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = (event) => {
-    event.preventDefault();
+  const nextPage = () => {
     console.log(understanding);
-    dispatch({
-      type: "SET_UNDERSTANDING",
-      payload: {understanding}
-    })
-    history.push('/supported')
-  }
+    if (understanding) {
+      dispatch({
+        type: "SET_UNDERSTANDING",
+        payload: {understanding}
+      });
+      history.push('/supported');
+    } else {
+      alert('Please enter a value before continuing!');
+    }
+  };
+
+  const backButton = () => {
+    history.push('/feeling');
+  };
 
   return (
     <div>
@@ -33,6 +40,8 @@ function Understanding() {
       </select>
       <button type="submit">Next</button>
       </form>
+      <br/>
+      <button onClick={backButton}>Back</button>
     </div>
   )
 };

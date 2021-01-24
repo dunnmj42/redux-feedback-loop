@@ -15,9 +15,9 @@ function Comments() {
     dispatch({
       type: "SET_COMMENTS",
       payload: {comments}
-    })
-    history.push('/review')
-  }
+    });
+    history.push('/review');
+  };
 
   return (
     <div>

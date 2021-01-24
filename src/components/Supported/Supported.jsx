@@ -12,12 +12,16 @@ function Supported() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(support);
-    dispatch({
-      type: "SET_SUPPORTED",
-      payload: {support}
-    })
-    history.push('/comments')
-  }
+    if (support) {
+      dispatch({
+        type: "SET_SUPPORTED",
+        payload: {support}
+      });
+      history.push('/comments');
+    } else {
+      alert('Please enter a value before continuing!');
+    }
+  };
 
   return (
     <div>

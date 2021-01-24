@@ -12,12 +12,16 @@ function Feeling() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(feeling);
-    dispatch({
-      type: "SET_FEELING",
-      payload: {feeling}
-    })
-    history.push('/understanding');
-  }
+    if (feeling) {
+      dispatch({
+        type: "SET_FEELING",
+        payload: {feeling}
+      });
+      history.push('/understanding');
+    } else {
+      alert('Please enter a value before continuing!');
+    }
+  };
 
   return (
     <div>

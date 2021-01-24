@@ -5,8 +5,8 @@ function Success() {
   const history = useHistory();
 
   const nextPage = () => {
-    history.push('/')
-  }
+    history.push('/');
+  };
 
   return (
     <div>

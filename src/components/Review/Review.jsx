@@ -19,9 +19,8 @@ function Review() {
     }).catch((error) =>{
       alert('error in submit')
       console.error(error)
-    })
-
-    history.push('/success')
+    });
+    history.push('/success');
   }
 
   return (
