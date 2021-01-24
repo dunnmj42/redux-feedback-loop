@@ -28,7 +28,7 @@ function Review() {
         console.error(error);
       });
     dispatch({
-      type: "CLEAR"
+      type: "CLEAR",
     }); // DISPATCH TO ROOT REDUCER FOR ALL CLEAR
     history.push("/success"); // push to success page
   };

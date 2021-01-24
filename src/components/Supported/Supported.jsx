@@ -18,7 +18,8 @@ function Supported() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(support);
-    if (support > 0) { // input validation
+    if (support > 0) {
+      // input validation
       dispatch({
         type: "SET_SUPPORTED",
         payload: { support },

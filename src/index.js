@@ -13,7 +13,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 const theme = createMuiTheme({
   palette: {
     type: "dark",
-  }
+  },
 });
 
 // TOP LEVEL REDUCERS FOR FEEDBACK DATA
@@ -51,14 +51,14 @@ const commentReducer = (state = {}, action) => {
     default:
       return state;
   }
-};// END TOP LEVEL REDUCERS
+}; // END TOP LEVEL REDUCERS
 
 // combineReducers for rootReducer use
 const appReducer = combineReducers({
-    feelingReducer,
-    understandingReducer,
-    supportedReducer,
-    commentReducer,
+  feelingReducer,
+  understandingReducer,
+  supportedReducer,
+  commentReducer,
 });
 
 // rootReducer allows CLEAR all reducers
@@ -72,16 +72,13 @@ const rootReducer = (state, action) => {
 };
 
 // store declaration and middleware(redux-logger)
-const reduxStore = createStore(
-  rootReducer,
-  applyMiddleware(logger)
-);
+const reduxStore = createStore(rootReducer, applyMiddleware(logger));
 
 // Theme provider for MUI and CSS baseline for element styling
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Provider store={reduxStore}>
-      <CssBaseline/>
+      <CssBaseline />
       <App />
     </Provider>
   </ThemeProvider>,

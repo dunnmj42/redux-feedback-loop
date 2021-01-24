@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-// feeling form 
+// feeling form
 function Feeling() {
   const [feeling, setFeeling] = useState("Feeling?"); // local state
 
@@ -18,7 +18,8 @@ function Feeling() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(feeling);
-    if (feeling > 0) { // input validation
+    if (feeling > 0) {
+      // input validation
       dispatch({
         type: "SET_FEELING",
         payload: { feeling },

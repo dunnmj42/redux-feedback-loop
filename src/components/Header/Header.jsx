@@ -1,4 +1,4 @@
-import './Header.css'
+import "./Header.css";
 
 // this is a header, it goes at the top.
 function Header() {

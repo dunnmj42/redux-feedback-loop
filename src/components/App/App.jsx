@@ -9,7 +9,7 @@ import Comments from "../Comments/Comments";
 import Review from "../Review/Review";
 import Success from "../Success/Success";
 import Landing from "../Landing/Landing";
-import Admin from "../Admin/Admin"
+import Admin from "../Admin/Admin";
 
 // ALL I DO IS ROUTE
 
@@ -33,7 +33,7 @@ function App() {
       </div>
     </Router>
   );
-};
+}
 
 // TOLD YOU
 

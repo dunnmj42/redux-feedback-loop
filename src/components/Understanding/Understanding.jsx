@@ -18,7 +18,8 @@ function Understanding() {
   const nextPage = (event) => {
     event.preventDefault();
     console.log(understanding);
-    if (understanding > 0) { // input validation
+    if (understanding > 0) {
+      // input validation
       dispatch({
         type: "SET_UNDERSTANDING",
         payload: { understanding },
