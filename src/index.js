@@ -51,13 +51,15 @@ const commentReducer = (state = {}, action) => {
   }
 };
 
-const reduxStore = createStore(
-  combineReducers({
+const rootReducer = combineReducers({
     feelingReducer,
     understandingReducer,
     supportedReducer,
     commentReducer,
-  }),
+});
+
+const reduxStore = createStore(
+  rootReducer,
   applyMiddleware(logger)
 );
 
