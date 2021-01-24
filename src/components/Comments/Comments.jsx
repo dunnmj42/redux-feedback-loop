@@ -8,8 +8,7 @@ function Comments() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = (event) => {
-    event.preventDefault();
+  const nextPage = () => {
     console.log(comments);
     dispatch({
       type: "SET_COMMENTS",

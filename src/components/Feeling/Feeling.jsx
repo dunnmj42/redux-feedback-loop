@@ -8,8 +8,7 @@ function Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = (event) => {
-    event.preventDefault();
+  const nextPage = () => {
     console.log(feeling);
     if (feeling) {
       dispatch({
@@ -33,9 +32,10 @@ function Feeling() {
         <select
           name="feeling"
           id="feeling"
+          value={feeling}
           onChange={(e) => setFeeling(e.target.value)}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Feeling?
           </option>
           <option value="1">1</option>

@@ -32,9 +32,10 @@ function Understanding() {
         <select
           name="understanding"
           id="understanding"
+          value={understanding}
           onChange={(e) => setUnderstanding(e.target.value)}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Understanding?
           </option>
           <option value="1">1</option>

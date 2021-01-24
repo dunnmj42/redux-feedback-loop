@@ -8,8 +8,7 @@ function Supported() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const nextPage = (event) => {
-    event.preventDefault();
+  const nextPage = () => {
     console.log(support);
     if (support) {
       dispatch({
@@ -33,9 +32,10 @@ function Supported() {
         <select
           name="support"
           id="support"
+          value={support}
           onChange={(e) => setSupport(e.target.value)}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Supported?
           </option>
           <option value="1">1</option>
