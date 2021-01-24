@@ -51,13 +51,24 @@ const commentReducer = (state = {}, action) => {
   }
 };
 
-const reduxStore = createStore(
-  combineReducers({
+const appReducer = combineReducers({
     feelingReducer,
     understandingReducer,
     supportedReducer,
     commentReducer,
-  }),
+});
+
+const rootReducer = (state, action) => {
+  switch (action.type) {
+    case "CLEAR":
+      return undefined;
+    default:
+      return appReducer(state, action);
+  }
+};
+
+const reduxStore = createStore(
+  rootReducer,
   applyMiddleware(logger)
 );
 
