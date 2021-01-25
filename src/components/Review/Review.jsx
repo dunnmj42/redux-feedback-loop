@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -14,7 +14,6 @@ function Review() {
   const comments = useSelector((store) => store.commentReducer);
 
   const history = useHistory();
-  const dispatch = useDispatch();
 
   // navigate to next page on successful POST
   const nextPage = () => {
@@ -22,15 +21,12 @@ function Review() {
       .post("/submit", { feeling, understanding, support, comments })
       .then((response) => {
         console.log(response);
+        history.push("/success"); // push to success page
       })
       .catch((error) => {
         alert("error in submit");
         console.error(error);
       });
-    dispatch({
-      type: "CLEAR",
-    }); // DISPATCH TO ROOT REDUCER FOR ALL CLEAR
-    history.push("/success"); // push to success page
   };
 
   // backwards navigation button
